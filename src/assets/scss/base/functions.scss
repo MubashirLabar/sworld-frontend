@@ -1,0 +1,93 @@
+@mixin font {
+  font-family: "Inter", sans-serif !important;
+}
+
+@mixin fontJunge {
+  font-family: "Junge", serif !important;
+}
+
+@mixin fontPetit {
+  font-family: "Petit Formal Script", cursive !important;
+}
+
+@mixin fontCormorant {
+  font-family: "Cormorant", serif !important;
+}
+
+@mixin anim($duration: 0.3s) {
+  transition: all $duration linear 0s;
+}
+
+@mixin word-wrap {
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 99%;
+}
+
+@mixin text-ellipsis($lines: 1) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 99%;
+  @if ($lines > 1) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+  }
+}
+
+@mixin bg-image($radius: 0px) {
+  height: 100%;
+  width: 100%;
+  border-radius: $radius;
+  background-color: $page-bg !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin dropDownAnim($duration: 0.2s) {
+  animation-name: drop;
+  animation-duration: $duration;
+  transform-origin: top;
+}
+
+@keyframes drop {
+  0% {
+    transform: scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+@mixin scrollBarStyle($width: 4px) {
+  &::-webkit-scrollbar {
+    width: $width;
+    background: rgba($color-black, 0.3);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-black, 0.9);
+  }
+}
+
+@mixin text-gradient(
+  $color: linear-gradient(93.62deg, #6860d5 8.82%, rgba(183, 14, 14, 0.46) 100%)
+) {
+  background: $color;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

@@ -1,0 +1,260 @@
+.product-detail-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    .hdr {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      .hdr-ls {
+        flex: 1;
+        .meta {
+          display: flex;
+          align-items: center;
+          margin-bottom: 3px;
+          .name {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 36px;
+            color: $color-white;
+            margin-right: 22px;
+          }
+          .rating {
+            display: flex;
+            align-items: center;
+            color: $color-yellow;
+            margin-top: 2px;
+            svg {
+              height: 26px;
+              width: 26px;
+            }
+          }
+        }
+        .location {
+          color: $color-primary;
+          font-size: 16px;
+          line-height: 20px;
+          display: flex;
+          align-items: center;
+          svg {
+            height: 15px;
+            width: 15px;
+            margin-right: 8px;
+          }
+        }
+        .external-btns {
+          display: flex;
+          align-items: center;
+          margin-left: 5px;
+          gap: 8px;
+          .btn {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            background: $color-primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-white;
+            @include anim;
+            position: relative;
+            svg {
+              height: 16px;
+              width: 16px;
+            }
+          }
+        }
+        .share-popup {
+          background: $block-bg-1;
+          box-shadow: 0px 0px 50px rgba(1, 13, 27, 0.5);
+          border-radius: 12px 12px 12px 0px;
+          position: absolute;
+          bottom: 40px;
+          left: 10px;
+          height: 56px;
+          padding: 10px 24px;
+          display: flex;
+          align-items: center;
+          @include dropDownAnim;
+          &::after {
+            content: "";
+            height: 20px;
+            width: 20px;
+            background: $block-bg-1;
+            position: absolute;
+            left: 0px;
+            bottom: -20px;
+            clip-path: polygon(78% 0, 0 0, 0 76%);
+          }
+        }
+      }
+      .hdr-rs {
+        width: 640px;
+        display: flex;
+        align-items: center;
+        .social-links {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          .link {
+            color: $color-white;
+            background: $color-secondary;
+            border-radius: 3px;
+            height: 26px;
+            width: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg {
+              height: 13px;
+              width: 13px;
+            }
+          }
+        }
+        .user {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          flex: 1;
+          .meta {
+            text-align: end;
+            margin-right: 12px;
+            .name {
+              color: #fff;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 21px;
+            }
+            .role {
+              font-weight: 300;
+              font-size: 13px;
+              line-height: 15px;
+              color: $color-grey-1;
+            }
+          }
+          .dp {
+            @include bg-image(50%);
+            height: 45px;
+            width: 45px;
+          }
+        }
+      }
+    }
+    .content-row {
+      display: flex;
+      width: 100%;
+      .ls {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-right: 30px;
+        .statics {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          margin-top: 22px;
+          .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &:not(:last-child) {
+              margin-right: 54px;
+            }
+            &.clock {
+              svg {
+                height: 28px;
+                width: 28px;
+              }
+            }
+            svg {
+              height: 32px;
+              width: 32px;
+              color: $color-primary;
+              margin-bottom: 3px;
+            }
+            .lbl {
+              font-size: 15px;
+              line-height: 20px;
+              color: $color-white;
+              margin-bottom: 1px;
+            }
+            .stamp {
+              font-weight: 300;
+              font-size: 13px;
+              line-height: 15px;
+              color: $color-grey-1;
+            }
+          }
+        }
+        .image {
+          @include bg-image(10px);
+          height: 280px;
+        }
+      }
+      .rs {
+        width: 100%;
+        max-width: 640px;
+        .map-section {
+          background: $block-bg;
+          height: 100%;
+          width: 100%;
+          border-radius: 15px;
+          display: flex;
+          flex-direction: column;
+          .map-block {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: $color-white;
+          }
+          .ftr {
+            height: 68px;
+            width: 100%;
+            background: #498ab3;
+            border-radius: 0px 0px 15px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .action {
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 20px;
+              color: $color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+  .description-block {
+    width: 100%;
+    display: flex;
+  }
+  .description {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+  }
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    .image {
+      @include bg-image(15px);
+      height: 215px;
+      width: 380px;
+    }
+  }
+}

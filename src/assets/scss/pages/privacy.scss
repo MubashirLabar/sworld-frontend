@@ -1,0 +1,36 @@
+.privacy-page {
+  .wrapper {
+    .content {
+      margin: 30px 0px;
+      background: $block-bg-1;
+      border-radius: 16px;
+      padding: 26px 48px;
+      .title {
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 52px;
+        color: $color-white;
+        margin-bottom: 18px;
+      }
+      .text {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 22px;
+        color: $color-white;
+        &.font-regular {
+          font-weight: 400;
+        }
+        &.font-bold {
+          font-weight: 700;
+        }
+      }
+      .block {
+        display: flex;
+        flex-direction: column;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

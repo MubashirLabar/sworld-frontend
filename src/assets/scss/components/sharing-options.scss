@@ -1,0 +1,33 @@
+.sharing-options {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  .share-btn {
+    .icon {
+      height: 22px;
+    }
+  }
+  .sharing-actions {
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+    border-left: 1px solid $color-white;
+  }
+  .expend {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    color: $color-white;
+    background: $color-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    @include anim;
+    svg {
+      height: 21px !important;
+      width: 21px !important;
+    }
+  }
+}

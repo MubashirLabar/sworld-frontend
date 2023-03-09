@@ -1,0 +1,238 @@
+*,
+html,
+body,
+div,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+label,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+  @include font;
+}
+ol,
+ul,
+li {
+  @include font;
+}
+
+caption,
+th {
+  text-align: left;
+  @include font;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+  @include font;
+}
+div,
+img,
+button,
+input,
+textarea,
+select {
+  outline: none;
+  @include font;
+}
+strong {
+  @include font;
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+  @include font;
+}
+a,
+img,
+button,
+input,
+textarea {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  background: none;
+  @include font;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  scroll-behavior: smooth;
+  @include font;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font {
+  @include font;
+}
+
+.word-wrap {
+  @include word-wrap;
+}
+
+.text-ellipsis {
+  @include text-ellipsis;
+}
+
+.anim {
+  @include anim;
+}
+
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.holder {
+  animation-duration: 2.2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: linear-gradient(to right, #ddd 8%, #e9e9e9 18%, #ddd 33%);
+  background-size: 1200px 100%;
+}
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.hidden-element {
+  position: absolute;
+  left: -88784352520;
+  top: -88784352520;
+  display: none;
+}
+
+.path1:before,
+.path2:before {
+  color: $color-black;
+}
+
+.hide {
+  @include hide;
+}
+
+.show {
+  @include show;
+}
+
+.app-width {
+  width: $app-width;
+  margin: 0 auto;
+  @include media("<=xl") {
+    width: 100%;
+    padding: 0px $app-padding;
+  }
+}

@@ -1,0 +1,30 @@
+// base
+@import "./base/variables.scss";
+@import "./base/media.scss";
+@import "./base/colors.scss";
+@import "./base/functions.scss";
+@import "./base/global.scss";
+
+// components
+@import "./components/authLayout.scss";
+@import "./components/chatbot.scss";
+@import "./components/modal.scss";
+@import "./components/product-card.scss";
+@import "./components/sharing-options.scss";
+@import "./components/product-detail-content.scss";
+
+// Modals
+@import "./modals/location-detail-modal.scss";
+@import "./modals/auth-modal.scss";
+
+// vendor
+@import "swiper/css";
+
+// pages
+@import "./pages/home.scss";
+@import "./pages/splash.scss";
+@import "./pages/search.scss";
+@import "./pages/privacy.scss";
+@import "./pages/terms.scss";
+@import "./pages/product-detail-page.scss";
+@import "./components/atoms.scss";

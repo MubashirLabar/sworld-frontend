@@ -1,0 +1,226 @@
+.auth-modal {
+  display: flex;
+  flex-direction: column;
+  width: 920px;
+  overflow: hidden;
+  .modal-hdr {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .cross-btn {
+      width: 110px;
+      height: 34px;
+      border-radius: 14px 14px 0px 0px;
+      background: #498ab3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 33px;
+      font-weight: 300;
+      color: $color-white;
+      z-index: 5;
+    }
+  }
+  .modal-container {
+    width: 100%;
+    border-radius: 20px;
+    background: $block-bg-1;
+    padding: 22px 48px 55px 22px;
+    overflow: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    .inner-hdr {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 10px 0px;
+      margin-bottom: 21px;
+      .title {
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 50px;
+        color: $color-white;
+      }
+      .logo {
+        height: 60px;
+        position: absolute;
+        right: 0;
+      }
+    }
+    .text {
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 26px;
+      color: $color-white;
+      text-align: center;
+      margin-bottom: 45px;
+    }
+    .auth-form {
+      width: 100%;
+      max-width: 670px;
+      margin: auto;
+      .field-row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
+      .field-control {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .field {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background: $color-white;
+          border-radius: 38px;
+          @include anim;
+          .input {
+            height: 48px;
+            width: 100%;
+            padding: 15px 20px;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 18px;
+            color: $color-black;
+            &::placeholder {
+              color: rgba(0, 0, 0, 0.5);
+              font-weight: 300;
+            }
+          }
+        }
+        .field-ftr {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 5px;
+          .forgot-btn {
+            font-size: 13px;
+            line-height: 15px;
+            color: $color-primary;
+            @include anim;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .breaker {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 17px;
+        &::after {
+          content: "";
+          border: 2px solid #dcdcdc;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 8px;
+        }
+        .or {
+          z-index: 3;
+          font-size: 20px;
+          line-height: 24px;
+          color: $color-primary;
+          background: $block-bg-1;
+          padding: 0px 24px;
+        }
+      }
+      .zero-btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .zero-btn {
+          background: $color-white;
+          border-radius: 37px;
+          height: 48px;
+          min-width: 300px;
+          display: flex;
+          align-items: center;
+          padding: 10px 14px;
+          color: $color-black;
+          @include anim;
+          .icon {
+            height: 21px;
+            width: 21px;
+          }
+          .lbl {
+            flex: 1;
+            font-size: 12px;
+            line-height: 15px;
+            text-align: center;
+          }
+          .arrow {
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+      .not-account {
+        font-size: 12px;
+        line-height: 15px;
+        color: $color-white;
+        text-align: center;
+        width: 100%;
+        button {
+          font-size: 12px;
+          line-height: 15px;
+          color: $color-white;
+          font-weight: 700;
+        }
+      }
+      .form-ftr {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        .btn {
+          background: $color-primary;
+          border-radius: 10px;
+          height: 48px;
+          min-width: 201px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 15px;
+          line-height: 18px;
+          color: $color-black-1;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+      .terms {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 15px;
+        .item {
+          display: flex;
+          align-items: center;
+          .checkbox {
+            margin-right: 8px;
+          }
+          .lbl {
+            font-size: 12px;
+            line-height: 15px;
+            color: $color-white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.app-checkbox {
+  height: 20px;
+  width: 20px;
+  color: $color-white;
+  border: 1px solid $color-white;
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @include anim(0.2s);
+  svg {
+    height: 16px;
+    width: 16px;
+    @include hide;
+    @include anim(0.2s);
+  }
+  &.checked {
+    border-color: $color-primary;
+    background-color: $color-primary;
+    svg {
+      @include show;
+    }
+  }
+}
