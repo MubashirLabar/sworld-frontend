@@ -107,7 +107,7 @@ function Header() {
             <Link to="/" className="link">
               Travel Blogs
             </Link>
-            <Link to="/" className="link">
+            <Link to={routes.analytics} className="link">
               Advertise with us
             </Link>
             <Link to="/" className="link">
