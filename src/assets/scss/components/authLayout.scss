@@ -88,6 +88,9 @@
       @include media("<=lg") {
         column-gap: 14px;
       }
+      @include media("<=sm") {
+        display: none;
+      }
       .action {
         width: 40px;
         height: 40px;
@@ -307,35 +310,81 @@
   .wrap {
     display: flex;
     margin-bottom: 80px;
+    @include media("<=md") {
+      flex-direction: column;
+    }
     .ls {
       flex: 1;
       display: flex;
       flex-direction: column;
       margin-right: 20%;
+      @include media("<=lg") {
+        margin-right: 5%;
+      }
+      @include media("<=md") {
+        margin-right: 0px;
+        margin-bottom: 40px;
+      }
+      @include media("<=sm") {
+        margin-bottom: 30px;
+      }
+      .social-links-lg {
+        display: flex;
+        @include media("<=md") {
+          display: none;
+        }
+      }
     }
     .rs {
       display: flex;
+      @include media("<=md") {
+        flex-direction: column-reverse;
+      }
       .block {
         &:not(:last-child) {
           margin-right: 74px;
+          @include media("<=lg") {
+            margin-right: 40px;
+          }
+          @include media("<=md") {
+            margin-right: 0px;
+            margin-top: 40px;
+          }
+          @include media("<=sm") {
+            margin-top: 30px;
+          }
         }
       }
     }
     .block {
       display: flex;
       flex-direction: column;
+      @include media("<=md") {
+        align-items: center;
+      }
       .title {
         font-weight: 700;
         font-size: 24px;
         line-height: 30px;
         color: $color-white;
         margin-bottom: 22px;
+        @include media("<=sm") {
+          font-size: 22px;
+          margin-bottom: 20px;
+        }
       }
       .text {
         font-weight: 300;
         font-size: 18px;
         line-height: 23px;
         color: $color-white;
+        @include media("<=md") {
+          text-align: center;
+        }
+        @include media("<=sm") {
+          font-size: 16px;
+          line-height: 22px;
+        }
       }
       .social-links {
         display: flex;
@@ -374,6 +423,9 @@
           line-height: 22px;
           color: $color-white;
           cursor: pointer;
+          @include media("<=sm") {
+            font-size: 16px;
+          }
           &:hover {
             text-decoration: underline;
           }
@@ -480,7 +532,7 @@
   }
   .copyright-block {
     width: 100%;
-    .content {
+    .cont {
       display: flex;
       align-items: center;
       .copyright {
@@ -489,6 +541,9 @@
         line-height: 18px;
         color: $color-white;
         flex: 1;
+        @include media("<=sm") {
+          font-size: 13px;
+        }
       }
       .links {
         display: flex;
@@ -499,11 +554,17 @@
           line-height: 18px;
           color: $color-white;
           cursor: pointer;
+          @include media("<=sm") {
+            font-size: 13px;
+          }
           &:hover {
             text-decoration: underline;
           }
           &:not(:last-child) {
             margin-right: 40px;
+            @include media("<=sm") {
+              margin-right: 20px;
+            }
           }
         }
       }

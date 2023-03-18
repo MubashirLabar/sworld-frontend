@@ -1,0 +1,215 @@
+.advertise-modal {
+  display: flex;
+  flex-direction: column;
+  width: 780px;
+  overflow: hidden;
+  @include media("<=lg") {
+    width: calc(100vw - 40px);
+  }
+  .modal-hdr {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .cross-btn {
+      width: 110px;
+      height: 34px;
+      border-radius: 14px 14px 0px 0px;
+      background: #498ab3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 33px;
+      font-weight: 300;
+      color: $color-white;
+      z-index: 5;
+    }
+  }
+  .modal-container {
+    width: 100%;
+    border-radius: 16px;
+    background: $block-bg-1;
+    padding: 30px 30px;
+    overflow: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    .text {
+      color: $color-white;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 26px;
+      @include media("<=md") {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
+    .contact-form {
+      .field-row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        @include media("<=xl") {
+          gap: 20px;
+        }
+
+        @include media("<=sm") {
+          flex-direction: column;
+        }
+        &:not(:last-child) {
+          margin-bottom: 40px;
+          @include media("<=xl") {
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .field-control {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .field {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background: $color-white;
+          border-radius: 38px;
+          @include anim;
+          .input {
+            height: 48px;
+            width: 100%;
+            padding: 15px 20px;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 18px;
+            color: $color-black;
+            @include media("<=md") {
+              height: 44px;
+            }
+            &::placeholder {
+              color: rgba(0, 0, 0, 0.5);
+              font-weight: 300;
+            }
+          }
+        }
+        .field-ftr {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 5px;
+          .forgot-btn {
+            font-size: 13px;
+            line-height: 15px;
+            color: $color-primary;
+            @include anim;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .about-block {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .label {
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 24px;
+          margin-bottom: 11px;
+          color: $color-white;
+        }
+        .options {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 26px;
+          .item {
+            display: flex;
+            align-items: center;
+            .lbl {
+              font-weight: 300;
+              font-size: 13px;
+              line-height: 16px;
+              color: $color-white;
+              margin-right: 4px;
+            }
+          }
+        }
+        .field-control {
+          &:not(:last-child) {
+            margin-bottom: 15px;
+          }
+          .field {
+            border-radius: 15px;
+            @include media("<=sm") {
+              border-radius: 10px;
+            }
+          }
+          .textarea {
+            resize: none;
+            height: 225px;
+            padding: 16px 14px;
+            @include media("<=sm") {
+              height: 160px;
+            }
+          }
+          &.website-link {
+            max-width: 320px;
+            .field {
+              border-radius: 40px;
+              margin-bottom: 11px;
+            }
+            .term {
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+              line-height: 20px;
+              color: $color-white;
+              .checkbox {
+                margin-right: 8px;
+              }
+            }
+          }
+        }
+      }
+      .form-ftr {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 12px;
+        .action {
+          background: $color-primary;
+          border-radius: 15px;
+          height: 59px;
+          min-width: 191px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          font-size: 15px;
+          line-height: 18px;
+          color: $color-black-1;
+          @include anim;
+          @include media("<=md") {
+            height: 50px;
+            min-width: 160px;
+            font-size: 15px;
+            line-height: 16px;
+            border-radius: 10px;
+          }
+          &:hover {
+            background: $color-secondary;
+            color: $color-white;
+          }
+        }
+      }
+    }
+  }
+}

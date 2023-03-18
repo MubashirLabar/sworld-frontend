@@ -6,6 +6,9 @@
   display: flex;
   flex-direction: column;
   padding: 18px 18px;
+  @include media("<=sm") {
+    padding: 10px 10px;
+  }
 }
 
 .chatbot_messages-area {
@@ -30,11 +33,20 @@
     background: $color-white;
     border-radius: 25px;
     padding: 0px 10px 0px 18px;
+    @include media("<=sm") {
+      height: 36px;
+      padding: 0px 7px 0px 12px;
+    }
     .input {
       font-size: 16px;
       color: $color-black;
       padding: 10px 0px;
       width: 100%;
+      @include media("<=sm") {
+        font-size: 10px;
+        line-height: 12px;
+        padding: 7px 0px;
+      }
       &::placeholder {
         color: $color-grey;
       }
@@ -50,12 +62,21 @@
       color: $color-white;
       background: $color-primary;
       @include anim;
+      @include media("<=sm") {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+      }
       &:hover {
         background: $color-secondary;
       }
       svg {
         height: 24px;
         width: 24px;
+        @include media("<=sm") {
+          height: 17px;
+          width: 17px;
+        }
       }
     }
   }
@@ -66,6 +87,10 @@
   padding-right: 12px;
   margin-bottom: 26px;
   width: 100%;
+  @include media("<=sm") {
+    padding-right: 0px;
+    margin-bottom: 22px;
+  }
   .dp {
     width: 50px;
     height: 50px;
@@ -80,6 +105,14 @@
     font-size: 15px;
     line-height: 18px;
     color: $color-white;
+    @include media("<=sm") {
+      height: 30px;
+      width: 30px;
+      min-width: 30px;
+      font-size: 10px;
+      line-height: 9px;
+      margin-right: 6px;
+    }
   }
   .meta {
     display: flex;
@@ -90,6 +123,11 @@
       line-height: 22px;
       color: $color-white;
       margin-bottom: 8px;
+      @include media("<=sm") {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 17px;
+      }
     }
     span {
       color: $color-primary;
@@ -102,22 +140,38 @@
       height: 125px;
       display: flex;
       cursor: pointer;
+      @include media("<=sm") {
+        border-radius: 8px;
+      }
       .image {
         @include bg-image(15px 0px 0px 15px);
         width: 170px;
         min-width: 170px;
         height: 125px;
+        @include media("<=sm") {
+          height: auto;
+          min-width: 100px;
+          width: 100px;
+          border-radius: 8px 0px 0px 8px;
+        }
       }
       .info {
         display: flex;
         flex-direction: column;
         padding: 10px 22px 10px 15px;
+        @include media("<=sm") {
+          padding: 10px 10px;
+        }
         .title {
           font-weight: 700;
           font-size: 18px;
           line-height: 22px;
           color: $color-white;
           margin-bottom: 3px;
+          @include media("<=sm") {
+            font-size: 13px;
+            line-height: 14px;
+          }
         }
         .location {
           display: flex;
@@ -126,10 +180,19 @@
           line-height: 15px;
           color: $color-primary;
           margin-bottom: 5px;
+          @include media("<=sm") {
+            font-size: 9px;
+            line-height: 11px;
+            margin-bottom: 3px;
+          }
           svg {
             height: 10px;
             width: 10px;
             margin-right: 3px;
+            @include media("<=sm") {
+              height: 8px;
+              width: 8px;
+            }
           }
         }
         .description {
@@ -137,6 +200,11 @@
           font-size: 12px;
           line-height: 15px;
           color: $color-white;
+          @include media("<=sm") {
+            font-size: 10px;
+            line-height: 13px;
+            margin-bottom: 3px;
+          }
         }
         .btns {
           width: 100%;
@@ -148,6 +216,10 @@
             font-size: 12px;
             line-height: 15px;
             color: $color-primary;
+            @include media("<=sm") {
+              font-size: 10px;
+              line-height: 13px;
+            }
           }
         }
       }
@@ -163,6 +235,9 @@
       margin-right: 0px;
       margin-left: 10px;
       background: $color-primary;
+      @include media("<=sm") {
+        margin-left: 5px;
+      }
     }
     .meta {
       margin-top: 0px;

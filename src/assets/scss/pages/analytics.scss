@@ -1,0 +1,534 @@
+.analytics-page {
+  @include media("<=sm") {
+    overflow-x: hidden;
+  }
+}
+
+.analytics_hero-section {
+  @include bg-image(0px);
+  height: 715px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @include media("<=lg") {
+    height: 500px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 13, 27, 0.2);
+  }
+  .wrapper {
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 100px;
+    @include media("<=lg") {
+      flex-direction: column;
+      align-items: center;
+    }
+    .ls {
+      flex: 1;
+      max-width: 600px;
+      padding-right: 40px;
+      @include media("<=xl") {
+        padding-right: 20px;
+      }
+      @include media("<=lg") {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-right: 0px;
+        padding: 28px 0px;
+      }
+      @include media("<=sm") {
+        padding: 20px 0px;
+      }
+      .title {
+        font-size: 75px;
+        line-height: 94px;
+        color: $color-white;
+        @include fontPetit;
+        margin-bottom: 5px;
+        @include media("<=xl") {
+          font-size: 54px;
+          line-height: 70px;
+        }
+        @include media("<=lg") {
+          text-align: center;
+          font-size: 38px;
+          line-height: 46px;
+        }
+        @include media("<=sm") {
+          font-size: 24px;
+          line-height: 38px;
+        }
+      }
+      .text {
+        font-size: 24px;
+        line-height: 30px;
+        color: $color-white;
+        @include fontJunge;
+        margin-bottom: 10px;
+        @include media("<=xl") {
+          font-size: 22px;
+          line-height: 28px;
+          text-align: center;
+        }
+        @include media("<=sm") {
+          font-size: 16px;
+          line-height: 25px;
+        }
+      }
+      .start-btn {
+        background: $block-bg;
+        box-shadow: 0px 10px 200px 1px $block-bg;
+        border-radius: 5px;
+        height: 52px;
+        min-width: 141px;
+        padding: 8px 15px;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+        color: $color-white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include media("<=sm") {
+          height: 50px;
+          min-width: 130px;
+          padding: 8px 12px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 14px;
+        }
+        svg {
+          height: 18px;
+          width: 18px;
+          margin-left: 10px;
+        }
+      }
+    }
+    .rs {
+      width: 100%;
+      max-width: 560px;
+      @include media("<=lg") {
+        max-width: 500px;
+      }
+      .block {
+        background: $block-bg-1;
+        box-shadow: 0px 10px 200px 1px $block-bg;
+        border-radius: 15px;
+        padding: 18px 24px;
+        width: 100%;
+        @include media("<=lg") {
+          margin-top: 50px;
+        }
+        @include media("<=sm") {
+          margin-top: 0px;
+          padding: 16px 20px;
+        }
+
+        .title {
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 34px;
+          color: $color-primary;
+          margin-bottom: 2px;
+          @include media("<=lg") {
+            font-size: 24px;
+            line-height: 30px;
+          }
+          @include media("<=sm") {
+            font-size: 18px;
+            line-height: 24px;
+          }
+        }
+        .stamp {
+          color: $color-primary;
+          display: flex;
+          align-items: center;
+          font-weight: 300;
+          font-size: 12px;
+          line-height: 15px;
+          margin-bottom: 12px;
+          @include media("<=lg") {
+            margin-bottom: 5px;
+          }
+          svg {
+            height: 16px;
+            width: 16px;
+            margin-right: 5px;
+            @include media("<=sm") {
+              height: 14px;
+              width: 14px;
+              margin-right: 3px;
+            }
+          }
+        }
+        .text {
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 18px;
+          color: $color-white;
+          margin-bottom: 20px;
+          @include media("<=lg") {
+            font-size: 14px;
+          }
+          @include media("<=sm") {
+            font-size: 13px;
+          }
+        }
+        .item {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          @include media("<=sm") {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+          .label {
+            flex: 1;
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 18px;
+            color: $color-white;
+            @include media("<=lg") {
+              font-size: 14px;
+              line-height: 16px;
+            }
+            @include media("<=sm") {
+              margin-bottom: 8px;
+            }
+          }
+          .graph-blk {
+            display: flex;
+            align-items: center;
+            @include media("<=sm") {
+              width: 100%;
+            }
+          }
+          .graph {
+            height: 36px;
+            object-fit: contain;
+            margin-right: 20px;
+            @include media("<=lg") {
+              height: 30px;
+              margin-right: 12px;
+            }
+          }
+          .value {
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 18px;
+            color: $color-white;
+            @include media("<=lg") {
+              font-size: 14px;
+              line-height: 16px;
+            }
+            @include media("<=sm") {
+              flex: 1;
+              text-align: end;
+            }
+          }
+        }
+      }
+    }
+  }
+  .analytics-statics {
+    position: relative;
+    z-index: 10;
+    max-width: 1088px;
+    .block {
+      min-height: 200px;
+      width: 100%;
+      background: $block-bg-1;
+      box-shadow: 0px 10px 200px 1px $block-bg;
+      border-radius: 15px;
+      position: absolute;
+      bottom: -95px;
+      padding: 16px 0px;
+      display: flex;
+      @include media("<=lg") {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 24px;
+        box-shadow: none;
+        border-radius: 0px;
+        background: transparent;
+        border-radius: 0px;
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        max-width: 400px;
+        grid-gap: 10px;
+        margin: 0 auto;
+        padding: 0px 0px;
+        bottom: -400px;
+      }
+      @include media("<=sm") {
+        bottom: -460px;
+        max-width: 380px;
+      }
+      .item {
+        padding: 0px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100%;
+        width: 33%;
+        @include media("<=lg") {
+          padding: 10px 10px;
+          width: 100%;
+          border-right: 0px;
+          background: $block-bg-1;
+          box-shadow: 0px 10px 200px 1px $block-bg;
+          border-radius: 15px;
+          min-height: 100px;
+        }
+        &:not(:last-child) {
+          border-right: 1px solid $color-primary-1;
+          @include media("<=lg") {
+            border-right: 0px;
+          }
+        }
+        svg {
+          height: 40px;
+          width: 40px;
+          color: $color-primary;
+          margin-bottom: 12px;
+          @include media("<=lg") {
+            height: 20px;
+            width: 20px;
+            margin-bottom: 5px;
+          }
+        }
+        .tit {
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 30px;
+          color: $color-primary;
+          margin-bottom: 4px;
+          @include media("<=lg") {
+            font-size: 14px;
+            line-height: 21px;
+            margin-bottom: 2px;
+          }
+        }
+        .txt {
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 18px;
+          color: $color-primary-1;
+          text-align: center;
+          @include media("<=lg") {
+            font-size: 12px;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.analytics_report-section {
+  padding: 200px 0px 175px 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @include media("<=lg") {
+    padding: 460px 0px 80px 0px;
+  }
+  @include media("<=sm") {
+    padding: 550px 0px 80px 0px;
+  }
+  .line-top-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 370px;
+    z-index: 0;
+    object-fit: contain;
+  }
+  .line-top-right {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    height: 650px;
+    z-index: 0;
+    object-fit: contain;
+  }
+  .line-bottom-left {
+    position: absolute;
+    left: 0;
+    bottom: 240px;
+    height: 550px;
+    z-index: 0;
+    object-fit: contain;
+  }
+  .line-bottom-right {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    height: 800px;
+    z-index: 0;
+    object-fit: contain;
+  }
+  .foreground-title {
+    @include fontCormorant;
+    width: 100%;
+    font-size: 184px;
+    line-height: 272px;
+    color: rgba($color-white, 0.08);
+    text-align: center;
+    position: absolute;
+    top: 29%;
+    white-space: nowrap;
+    overflow: hidden;
+    @include media("<=lg") {
+      font-size: 140px;
+      top: 49%;
+      line-height: 180px;
+    }
+    @include media("<=sm") {
+      font-size: 60px;
+      top: 31%;
+    }
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    .title {
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 61px;
+      color: $color-white;
+      margin-bottom: 23px;
+      text-align: center;
+      @include media("<=lg") {
+        font-size: 32px;
+        line-height: 40px;
+      }
+      @include media("<=sm") {
+        font-size: 22px;
+        line-height: 32px;
+        margin-bottom: 20px;
+      }
+    }
+    .users-activities {
+      display: flex;
+      align-items: center;
+      max-width: 700px;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: 70px;
+      row-gap: 30px;
+      margin-bottom: 54px;
+      @include media("<=lg") {
+        margin-bottom: 40px;
+        column-gap: 20px;
+        row-gap: 20px;
+      }
+      @include media("<=sm") {
+        margin-bottom: 20px;
+        column-gap: 12px;
+        row-gap: 12px;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: $color-primary;
+        border-radius: 4px;
+        min-width: 306px;
+        min-height: 83px;
+        padding: 10px 10px;
+        &.days {
+          background: #4583aa;
+        }
+        &.yesterday {
+          background: #06344c;
+          .meta {
+            color: #4583aa;
+          }
+        }
+        .meta {
+          display: flex;
+          align-items: center;
+          color: $color-black-2;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 24px;
+          margin-bottom: 8px;
+          @include media("<=lg") {
+            font-size: 18px;
+            line-height: 21px;
+            margin-bottom: 6px;
+          }
+          svg {
+            height: 28px;
+            width: 28px;
+            margin-right: 8px;
+            @include media("<=lg") {
+              height: 20px;
+              width: 20px;
+              margin-right: 7px;
+            }
+          }
+        }
+        .number {
+          font-weight: 700;
+          font-size: 15px;
+          line-height: 18px;
+          text-align: center;
+          color: $color-white;
+          @include media("<=lg") {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    .graph-block {
+      background: $block-bg-1;
+      border-radius: 12px;
+      height: 290px;
+      width: 100%;
+      max-width: 835px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      font-size: 20px;
+      font-weight: 700;
+      color: $color-white;
+    }
+    .request-btn {
+      background: $block-bg;
+      box-shadow: 0px 10px 200px 1px $block-bg;
+      border-radius: 5px;
+      height: 68px;
+      min-width: 332px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      color: $color-white;
+      @include media("<=lg") {
+        height: 60px;
+        min-width: 300px;
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+  }
+}

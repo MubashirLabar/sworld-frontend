@@ -1,5 +1,8 @@
 .home-page {
   min-height: 100vh;
+  @include media("<=md") {
+    overflow-x: hidden;
+  }
   .hero-section {
     @include bg-image(0px);
     height: 720px;
@@ -7,6 +10,9 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    @include media("<=sm") {
+      height: 300px;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -29,6 +35,9 @@
       height: 400px;
       position: relative;
       text-align: center;
+      @include media("<=sm") {
+        display: none;
+      }
       .global-logo {
         height: 100%;
         width: 100%;
@@ -41,6 +50,10 @@
         line-height: 30px;
         color: $color-white;
         margin-bottom: 3px;
+        @include media("<=lg") {
+          font-size: 20px;
+          line-height: 24px;
+        }
       }
       .slogan {
         font-size: 50px;
@@ -48,6 +61,11 @@
         color: $color-white;
         @include fontPetit;
         padding-bottom: 30px;
+        @include media("<=lg") {
+          font-size: 38px;
+          margin-bottom: 50px;
+          line-height: 50px;
+        }
       }
     }
   }
@@ -60,18 +78,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include media("<=sm") {
+      bottom: -270px;
+    }
     .wrap {
       display: flex;
       align-items: center;
       justify-content: center;
+      @include media("<=lg") {
+        flex-direction: column;
+      }
       .chat-block {
-        width: 798px;
+        max-width: 798px;
+        width: 100%;
         height: 471px;
         background: #06344d;
         box-shadow: 0px 10px 200px 1px #010d1b;
         border-radius: 25px;
         margin-right: 22px;
         padding: 18px;
+        @include media("<=lg") {
+          margin-right: 0px;
+          margin-bottom: 22px;
+        }
+        @include media("<=sm") {
+          padding: 7px;
+          height: 350px;
+        }
       }
       .actions {
         display: flex;
@@ -93,6 +126,12 @@
           &:hover {
             background: $color-primary;
           }
+          @include media("<=sm") {
+            width: 160px;
+            height: 56px;
+            font-size: 13px;
+            line-height: 14px;
+          }
         }
       }
     }
@@ -102,6 +141,9 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    @include media("<=sm") {
+      padding: 200px 0px 80px 0px;
+    }
     .foreground-title {
       @include fontCormorant;
       font-size: 280px;
@@ -112,9 +154,21 @@
       font-style: italic;
       position: absolute;
       z-index: 0;
+      white-space: nowrap;
+      overflow: hidden;
       @include media("<=2xl") {
         font-size: 230px;
         line-height: 260px;
+      }
+      @include media("<=lg") {
+        font-size: 140px;
+        line-height: 180px;
+        padding-top: 24px;
+      }
+      @include media("<=sm") {
+        font-size: 90px;
+        line-height: 70px;
+        padding-top: 92px;
       }
     }
     .wrap {
@@ -123,35 +177,76 @@
       align-items: flex-end;
       z-index: 10;
       margin-top: 180px;
+      @include media("<=sm") {
+        margin-top: 120px;
+      }
     }
     .section {
       display: flex;
       align-items: center;
       width: 100%;
       z-index: 3;
+      @include media("<=lg") {
+        flex-direction: column;
+      }
+      .title {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        color: $color-white;
+        margin-bottom: 12px;
+        @include media("<=sm") {
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
       .ls {
         margin-right: 80px;
+        @include media("<=lg") {
+          margin-right: 0px;
+          margin-bottom: 40px;
+        }
+        @include media("<=sm") {
+          width: 100%;
+        }
+        .title {
+          display: none;
+          @include media("<=lg") {
+            display: block;
+            text-align: center;
+            margin-bottom: 26px;
+          }
+        }
         .image {
           @include bg-image(15px);
           width: 651px;
           height: 433px;
-          box-shadow: 0px 0px 200px 1px #010d1b;
+          box-shadow: 0px 0px 200px 1px $block-bg;
+          @include media("<=sm") {
+            width: 100%;
+            height: 225px;
+          }
         }
       }
       .rs {
         padding-bottom: 60px;
         .title {
-          font-weight: 700;
-          font-size: 30px;
-          line-height: 36px;
-          color: $color-white;
-          margin-bottom: 12px;
+          @include media("<=lg") {
+            display: none;
+          }
         }
         .text {
           font-weight: 300;
           font-size: 20px;
           line-height: 24px;
           color: $color-white;
+          @include media("<=lg") {
+            text-align: center;
+          }
+          @include media("<=sm") {
+            font-size: 16px;
+            line-height: 22px;
+          }
           &:not(:last-child) {
             margin-bottom: 12px;
           }
@@ -164,30 +259,53 @@
       border-radius: 15px;
       padding: 48px 24px 48px 35px;
       width: 100%;
-      width: 1140px;
+      max-width: 1140px;
       z-index: 4;
       margin-top: -60px;
       display: flex;
       align-items: center;
+      @include media("<=lg") {
+        margin-top: 0px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 30px 20px 30px 20px;
+      }
       .ls {
         display: flex;
         flex-direction: column;
         flex: 1;
         padding-right: 24px;
+        @include media("<=lg") {
+          padding-right: 0px;
+          margin-bottom: 40px;
+        }
         .title {
           font-weight: 700;
           font-size: 30px;
           line-height: 36px;
           color: $color-white;
           margin-bottom: 22px;
+          @include media("<=sm") {
+            font-size: 22px;
+            line-height: 31px;
+            margin-bottom: 20px;
+          }
         }
         .text {
           font-weight: 300;
           font-size: 20px;
           line-height: 24px;
           color: $color-white;
+          @include media("<=sm") {
+            font-size: 16px;
+            line-height: 21px;
+          }
           &:not(:last-child) {
             margin-bottom: 26px;
+            @include media("<=sm") {
+              margin-bottom: 20px;
+            }
           }
         }
       }
@@ -195,6 +313,15 @@
         .image {
           height: 350px;
           object-fit: contain;
+          @include media("<=lg") {
+            height: 320px;
+          }
+          @include media("<=md") {
+            height: 280px;
+          }
+          @include media("<=sm") {
+            height: 170px;
+          }
         }
       }
     }
@@ -205,6 +332,9 @@
       height: 960px;
       object-fit: contain;
       z-index: 0;
+      @include media("<=lg") {
+        height: 800px;
+      }
     }
     .line-top-left {
       position: absolute;
@@ -213,6 +343,9 @@
       height: 750px;
       object-fit: contain;
       z-index: 0;
+      @include media("<=lg") {
+        height: 600px;
+      }
     }
     .line-bottom-left {
       position: absolute;
@@ -221,6 +354,9 @@
       height: 800px;
       object-fit: contain;
       z-index: 0;
+      @include media("<=lg") {
+        height: 600px;
+      }
     }
     .line-bottom-right {
       position: absolute;
@@ -229,6 +365,9 @@
       height: 750px;
       object-fit: contain;
       z-index: 0;
+      @include media("<=lg") {
+        height: 600px;
+      }
     }
   }
 }

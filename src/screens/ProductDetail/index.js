@@ -65,12 +65,10 @@ function ProductDetail() {
           </div>
         </div>
         <div className="similar-section">
-          <div className="title">Articles visited by users</div>
+          <div className="foreground-title">Articles visited by users</div>
           <div className="similar-content app-width">
             <Swiper
               ref={sliderRef}
-              slidesPerView={3}
-              spaceBetween={18}
               modules={[Pagination, Navigation]}
               pagination={{
                 el: ".swiper-pagination",
@@ -83,6 +81,20 @@ function ProductDetail() {
               }}
               onSlideChange={handleSlideChange}
               className="swiper-slider"
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                900: {
+                  slidesPerView: 3,
+                  spaceBetween: 18,
+                },
+              }}
             >
               {[...Array(8)].map((item, index) => (
                 <SwiperSlide className="swiper-slide" key={index}>

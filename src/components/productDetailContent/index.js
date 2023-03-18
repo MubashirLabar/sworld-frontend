@@ -35,32 +35,34 @@ function ProductDetailContent({
           <div className="hdr-ls">
             <div className="meta">
               <div className="name">{data.title}</div>
-              <div className="rating">
-                {[...Array(data.review)].map((_, index) => (
-                  <StarFillIcon key={index} />
-                ))}
-              </div>
-              {showExternalButtons && (
-                <div className="external-btns">
-                  <button className="btn">
-                    <UserIconAudio />
-                  </button>
-                  <button
-                    className="btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setOpenShareOptions(true);
-                    }}
-                  >
-                    <ShareIcon />
-                    {openShareOptions && (
-                      <div className="share-popup">
-                        <SharingOptions />
-                      </div>
-                    )}
-                  </button>
+              <div className="rating-blk">
+                <div className="rating">
+                  {[...Array(data.review)].map((_, index) => (
+                    <StarFillIcon key={index} />
+                  ))}
                 </div>
-              )}
+                {showExternalButtons && (
+                  <div className="external-btns">
+                    <button className="btn">
+                      <UserIconAudio />
+                    </button>
+                    <button
+                      className="btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setOpenShareOptions(true);
+                      }}
+                    >
+                      <ShareIcon />
+                      {openShareOptions && (
+                        <div className="share-popup">
+                          <SharingOptions />
+                        </div>
+                      )}
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
             {data?.address && (
               <div className="location">

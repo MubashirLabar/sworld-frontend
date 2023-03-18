@@ -1,19 +1,22 @@
 import React from "react";
 
 function HowItWork() {
+  const Title = () => <div className="title">How Sworld works with AI?</div>;
+
   return (
     <div className="how-it-works-section">
       <div className="foreground-title">AI of the future</div>
       <div className="wrap app-width">
         <div className="section">
           <div className="ls">
+            {Title()}
             <div
               className="image"
               style={{ backgroundImage: `url(/images/how-ai-work.png)` }}
             />
           </div>
           <div className="rs">
-            <div className="title">How Sworld works with AI?</div>
+            {Title()}
             <div className="text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

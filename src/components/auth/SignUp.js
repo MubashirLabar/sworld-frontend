@@ -8,7 +8,7 @@ function SignUp({ onClose, setActiveTab }) {
   const [isNewsletter, setIsNewsletter] = useState(false);
 
   return (
-    <div className="modal-container">
+    <div className="auth-container">
       <div className="inner-hdr">
         <div className="title">Sign Up</div>
         <img src="/images/logo.svg" alt="logo" className="logo" />

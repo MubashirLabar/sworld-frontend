@@ -12,10 +12,13 @@
 @import "./components/product-card.scss";
 @import "./components/sharing-options.scss";
 @import "./components/product-detail-content.scss";
+@import "./components/atoms.scss";
+@import "./components/developer-card.scss";
 
 // Modals
 @import "./modals/location-detail-modal.scss";
 @import "./modals/auth-modal.scss";
+@import "./modals/advertise-modal.scss";
 
 // vendor
 @import "swiper/css";
@@ -24,7 +27,8 @@
 @import "./pages/home.scss";
 @import "./pages/splash.scss";
 @import "./pages/search.scss";
-@import "./pages/privacy.scss";
 @import "./pages/terms.scss";
 @import "./pages/product-detail-page.scss";
-@import "./components/atoms.scss";
+@import "./pages/contact.scss";
+@import "./pages/developer.scss";
+@import "./pages/analytics.scss";

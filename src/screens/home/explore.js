@@ -9,7 +9,11 @@ function Explore() {
           <Chatbot />
         </div>
         <div className="actions">
-          <Link to="/search" className="action">
+          <Link
+            to="/search"
+            className="action"
+            onClick={() => (document.documentElement.scrollTop = 0)}
+          >
             Explore now
           </Link>
         </div>

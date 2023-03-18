@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CrossIcon, MenuIcon, PlusIcon, UserIcon } from "assets/icons";
 import AuthModal from "modals/AuthModal";
+import routes from "routes";
 
 function Header() {
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -27,7 +28,7 @@ function Header() {
       <div className="auth-layout_header">
         <div className="wrap app-width">
           <div className="ls">
-            <Link to="/" className="link">
+            <Link to={routes.analytics} className="link">
               Advertise with us
             </Link>
             <Link to="/" className="link">

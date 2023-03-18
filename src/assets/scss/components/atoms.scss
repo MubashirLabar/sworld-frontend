@@ -1,3 +1,4 @@
+/* Checkbox */
 .app-checkbox {
   height: 20px;
   width: 20px;
@@ -19,6 +20,35 @@
     border-color: $color-primary;
     background-color: $color-primary;
     svg {
+      @include show;
+    }
+  }
+}
+
+/* Radio */
+.app-radio {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  border-radius: 50%;
+  border: 1px solid $color-white;
+  @include anim;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $color-primary;
+    @include hide;
+  }
+  &.active {
+    border-color: $color-primary;
+    &::after {
       @include show;
     }
   }

@@ -2,7 +2,7 @@ import { ArrowRightIcon } from "assets/icons";
 
 function Login({ onClose, setActiveTab }) {
   return (
-    <div className="modal-container">
+    <div className="auth-container">
       <div className="inner-hdr">
         <div className="title">Login</div>
         <img src="/images/logo.svg" alt="logo" className="logo" />

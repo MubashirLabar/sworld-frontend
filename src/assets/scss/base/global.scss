@@ -235,4 +235,7 @@ button {
     width: 100%;
     padding: 0px $app-padding;
   }
+  @include media("<=md") {
+    padding: 0px $app-padding-sm;
+  }
 }

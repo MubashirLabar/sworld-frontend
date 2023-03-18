@@ -4,13 +4,33 @@
       margin: 30px 0px;
       background: $block-bg-1;
       border-radius: 16px;
-      padding: 26px 48px;
+      padding: 26px 48px 48px 48px;
+      @include media("<=lg") {
+        padding: 25px 30px 30px 30px;
+      }
+      @include media("<=sm") {
+        padding: 20px 20px;
+        margin: 24px 0px;
+      }
       .title {
         font-weight: 700;
         font-size: 42px;
         line-height: 52px;
         color: $color-white;
         margin-bottom: 18px;
+        @include media("<=lg") {
+          font-size: 38px;
+          line-height: 48px;
+          margin-bottom: 15px;
+        }
+        @include media("<=md") {
+          font-size: 32px;
+          line-height: 38px;
+        }
+        @include media("<=sm") {
+          font-size: 24px;
+          line-height: 29px;
+        }
       }
       .text {
         font-weight: 300;
@@ -22,6 +42,10 @@
         }
         &.font-bold {
           font-weight: 700;
+        }
+        @include media("<=lg") {
+          font-size: 16px;
+          line-height: 21px;
         }
       }
       .block {

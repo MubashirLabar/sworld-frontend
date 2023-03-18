@@ -2,7 +2,7 @@ import AuthLayout from "components/layouts/authLayout";
 
 function Privacy() {
   return (
-    <AuthLayout className="privacy-page">
+    <AuthLayout className="terms-page">
       <div className="wrapper app-width">
         <div className="content">
           <div className="title">Privacy</div>

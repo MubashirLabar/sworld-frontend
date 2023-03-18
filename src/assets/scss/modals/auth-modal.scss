@@ -22,7 +22,7 @@
       z-index: 5;
     }
   }
-  .modal-container {
+  .auth-container {
     width: 100%;
     border-radius: 20px;
     background: $block-bg-1;
@@ -198,7 +198,7 @@
           justify-content: center;
           font-size: 15px;
           line-height: 18px;
-          color: $color-black-1;
+          color: $color-black-2;
           font-weight: 700;
           text-transform: uppercase;
         }

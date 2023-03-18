@@ -1,5 +1,6 @@
 .product-card {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   border-radius: 16px;
   background-color: $block-bg-1;
   padding: 13px;
@@ -30,7 +31,7 @@
       .distance {
         font-size: 8px;
         line-height: 8px;
-        color: $color-black-1;
+        color: $color-black-2;
         padding: 3px 5px 4px 4px;
         background: #88e0f6;
         border-radius: 2px;
@@ -129,6 +130,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      color: $color-white;
       svg {
         height: 16px;
         width: 16px;
