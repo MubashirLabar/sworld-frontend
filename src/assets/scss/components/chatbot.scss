@@ -14,10 +14,19 @@
 .chatbot_messages-area {
   overflow: hidden;
   overflow-y: auto;
+  max-height: 352px;
   position: relative;
   flex: 1;
   &::-webkit-scrollbar {
     width: 0px;
+  }
+  .message-loader {
+    width: 100%;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+    margin: 0px 40px;
+    margin-bottom: 26px;
   }
 }
 
@@ -84,6 +93,7 @@
 
 .chatbot_message {
   display: flex;
+  // align-items: center;
   padding-right: 12px;
   margin-bottom: 26px;
   width: 100%;
@@ -117,12 +127,12 @@
   .meta {
     display: flex;
     flex-direction: column;
-    margin-top: 2px;
+    margin-top: 15px;
     .text {
       font-size: 16px;
       line-height: 22px;
       color: $color-white;
-      margin-bottom: 8px;
+      // margin-bottom: 8px;
       @include media("<=sm") {
         font-weight: 300;
         font-size: 13px;
@@ -226,7 +236,6 @@
     }
   }
   &.from-user {
-    align-items: center;
     flex-direction: row-reverse;
     padding-right: 0px;
     padding-left: 12px;
@@ -240,7 +249,6 @@
       }
     }
     .meta {
-      margin-top: 0px;
       .text {
         margin-bottom: 0px;
         color: $color-primary;
