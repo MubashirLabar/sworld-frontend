@@ -1,3 +1,3 @@
 export default Object.freeze({
-  BASE_URL: "http://localhost:5000/api/",
+  BASE_URL: "https://vercel.com/mubashirlabar/sworld-backend/",
 });
