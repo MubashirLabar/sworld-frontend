@@ -5,7 +5,7 @@ const chatServices = createApi({
   reducerPath: "chat",
   tagTypes: "chat",
   baseQuery: fetchBaseQuery({
-    baseUrl: env.BASE_URL,
+    baseUrl: `${env.BASE_URL}chat/`,
     headers: {
       "Content-Type": "application/json",
     },
@@ -16,7 +16,7 @@ const chatServices = createApi({
       create: builder.mutation({
         query: (data) => {
           return {
-            url: "createMessage",
+            url: "answer",
             method: "POST",
             body: data,
           };

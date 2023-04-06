@@ -64,18 +64,18 @@ function Contact() {
                 <div className="meta">
                   <div className="label">Contact Information</div>
                   <div className="text">
-                    Fill out the contact form and our Team will get back to you
-                    within 24 hours.
+                    Hi, Please contact me by using the below information for the
+                    detailed meeting.
                   </div>
                 </div>
                 <div className="info">
                   <div className="item">
                     <PhoneIcon />
-                    xx xxx xxxx
+                    +92 3080059035
                   </div>
                   <div className="item">
                     <MessageIcon />
-                    sworld@gmail.com
+                    mubashirnazir115@gmail.com
                   </div>
                   <div className="item">
                     <LocationIcon3 />
