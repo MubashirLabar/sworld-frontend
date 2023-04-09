@@ -27,7 +27,7 @@ const details = {
   ],
 };
 
-function LocationDetailModal({ open, onClose }) {
+function LocationDetailModal({ open, onClose, data }) {
   return (
     <Modal open={open} onClose={onClose} className="location-detail-modal">
       <div className="modal-hdr">
@@ -37,7 +37,7 @@ function LocationDetailModal({ open, onClose }) {
       </div>
       <div className="modal-container">
         <ProductDetailContent
-          data={details}
+          data={data}
           showExternalButtons={false}
           showSocialButtons={false}
         />

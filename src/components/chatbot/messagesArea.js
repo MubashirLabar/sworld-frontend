@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import LoaderDot from "components/atoms/LoaderDot";
 import Message from "./message";
 
-function MessagesArea({ chat, isLoading, chatWindowRef }) {
+function MessagesArea({ chat, answerLoading, chatWindowRef }) {
   const messagesEndRef = useRef(null);
 
   // Scroll to the bottom of the chat window when the component mounts
@@ -21,7 +21,7 @@ function MessagesArea({ chat, isLoading, chatWindowRef }) {
             />
           ))
         : null}
-      {isLoading && (
+      {answerLoading && (
         <div className="message-loader">
           <LoaderDot />
         </div>

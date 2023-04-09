@@ -10,7 +10,7 @@ function UserMessage({ message }) {
     >
       <div className="dp">You</div>
       <div className="meta">
-        <div className="text">{message.text}</div>
+        <div className="text">{message.answer}</div>
       </div>
     </div>
   );

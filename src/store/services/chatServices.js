@@ -13,10 +13,21 @@ const chatServices = createApi({
 
   endpoints: (builder) => {
     return {
-      create: builder.mutation({
+      answer: builder.mutation({
         query: (data) => {
           return {
             url: "answer",
+            method: "POST",
+            body: data,
+          };
+        },
+        invalidatesTags: ["chat"],
+      }),
+
+      search: builder.mutation({
+        query: (data) => {
+          return {
+            url: "search",
             method: "POST",
             body: data,
           };
@@ -27,5 +38,5 @@ const chatServices = createApi({
   },
 });
 
-export const { useCreateMutation } = chatServices;
+export const { useAnswerMutation, useSearchMutation } = chatServices;
 export default chatServices;

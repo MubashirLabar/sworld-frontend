@@ -5,6 +5,7 @@ import Typewriter from "components/atoms/Typewriter";
 
 function AIMessage({ message, chatWindowRef }) {
   const [openModal, setOpenModal] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState();
   const handleCloseModal = () => {
     setOpenModal(false);
   };
@@ -14,35 +15,49 @@ function AIMessage({ message, chatWindowRef }) {
       <div className="chatbot_message">
         <div className="dp">AI</div>
         <div className="meta">
-          <Typewriter className="text" delay={20} text={message.text} />
+          <Typewriter className="text" delay={20} text={message.answer} />
           {/* <div className="text">
             {message.text}
             <span>https://sworld/Colosseo-a-Roma</span>
           </div> */}
-          {/* <div className="attachment" onClick={() => setOpenModal(true)}>
-            <div
-              className="image"
-              style={{ backgroundImage: `url(/images/colosseo.webp)` }}
-            />
-            <div className="info">
-              <div className="title">Colosseum</div>
-              <div className="location">
-                <LocationIcon />
-                Italy, Rome
-              </div>
-              <div className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam...
-              </div>
-              <div className="btns">
-                <button className="btn">View more</button>
-              </div>
-            </div>
-          </div> */}
+          {message?.places?.length > 0
+            ? message?.places.map((item, index) => (
+                <div key={index} className="attachment">
+                  <div
+                    className="image"
+                    style={{ backgroundImage: `url(/images/colosseo.webp)` }}
+                  />
+                  <div className="info">
+                    <div className="title">{item.name}</div>
+                    <div className="location">
+                      <LocationIcon />
+                      {item.address ? item.address : `N/A`}
+                    </div>
+                    <div className="description ellipsis-3">
+                      {item.description}
+                    </div>
+                    <div className="btns">
+                      <button
+                        className="btn"
+                        onClick={() => {
+                          setOpenModal(true);
+                          setSelectedPlace(item);
+                        }}
+                      >
+                        View more
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            : null}
         </div>
       </div>
-      <LocationDetailModal open={openModal} onClose={handleCloseModal} />
+      <LocationDetailModal
+        open={openModal}
+        onClose={handleCloseModal}
+        data={selectedPlace}
+      />
     </>
   );
 }

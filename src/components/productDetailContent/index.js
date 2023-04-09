@@ -28,13 +28,17 @@ function ProductDetailContent({
     });
   }, []);
 
+  const descriptionHTML = data.historical_descr
+    ?.trimStart()
+    ?.replace(/\n/g, "<br/>");
+
   return (
     <div className="product-detail-content">
       <div className="section">
         <div className="hdr">
           <div className="hdr-ls">
             <div className="meta">
-              <div className="name">{data.title}</div>
+              <div className="name">{data.name}</div>
               <div className="rating-blk">
                 <div className="rating">
                   {[...Array(data.review)].map((_, index) => (
@@ -67,7 +71,7 @@ function ProductDetailContent({
             {data?.address && (
               <div className="location">
                 <LocationIcon />
-                <span>{data.address}</span>
+                <span>{data?.address || "N/A"}</span>
               </div>
             )}
           </div>
@@ -90,13 +94,10 @@ function ProductDetailContent({
             )}
             <div className="user">
               <div className="meta">
-                <div className="name">{data.user.name}</div>
-                <div className="role">{data.user.role}</div>
+                <div className="name">N/A</div>
+                <div className="role">N/A</div>
               </div>
-              <div
-                className="dp"
-                style={{ backgroundImage: `url(${data.user.dp})` }}
-              />
+              <div className="dp" style={{ backgroundImage: `url()` }} />
             </div>
           </div>
         </div>
@@ -106,28 +107,25 @@ function ProductDetailContent({
               <div className="item">
                 <LocationIcon2 />
                 <div className="lbl">Distance</div>
-                <div className="stamp">{data.distance}</div>
+                <div className="stamp">N/A</div>
               </div>
               <div className="item clock">
                 <ClockIcon />
                 <div className="lbl">Duration</div>
-                <div className="stamp">{data.duration}</div>
+                <div className="stamp">N/A</div>
               </div>
               <div className="item">
                 <TypeIcon />
                 <div className="lbl">Type</div>
-                <div className="stamp">{data.type}</div>
+                <div className="stamp">N/A</div>
               </div>
               <div className="item">
                 <HostingIcon />
                 <div className="lbl">Hosting</div>
-                <div className="stamp">{data.hosting}</div>
+                <div className="stamp">N/A</div>
               </div>
             </div>
-            <div
-              className="image"
-              style={{ backgroundImage: `url(${data.poster})` }}
-            />
+            <div className="image" style={{ backgroundImage: `url()` }} />
           </div>
           <div className="rs">
             <div className="map-section">
@@ -139,17 +137,16 @@ function ProductDetailContent({
           </div>
         </div>
       </div>
-      <div className="description">
-        {data.description.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
-        {/* <div className="gallery">
+      <div
+        dangerouslySetInnerHTML={{ __html: descriptionHTML }}
+        className="description"
+      />
+      {/* <div className="gallery">
           <div
             className="image"
             style={{ backgroundImage: `url(/images/poster-1.webp)` }}
           />
         </div> */}
-      </div>
     </div>
   );
 }

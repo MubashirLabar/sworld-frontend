@@ -1,27 +1,26 @@
 import { useEffect, useState, useRef } from "react";
 import ChatFooter from "./chatFooter";
 import MessagesArea from "./messagesArea";
-import { useCreateMutation } from "store/services/chatServices";
+import { useAnswerMutation } from "store/services/chatServices";
 
 function Chatbot() {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
-  const [sendMessage, response] = useCreateMutation();
+  const [createAnswer, answerResponse] = useAnswerMutation();
   const chatWindowRef = useRef(null);
 
-  const { isLoading, isError, isSuccess, data } = response;
-
   useEffect(() => {
-    if (data) {
+    if (answerResponse?.data) {
       setChat([
         ...chat,
         {
-          text: data.text,
+          answer: answerResponse.data?.text,
+          places: answerResponse.data?.places,
           isUser: false,
         },
       ]);
     }
-  }, [isSuccess]);
+  }, [answerResponse.isSuccess]);
 
   useEffect(() => {
     // Scroll the chat window to the bottom when the messages change
@@ -34,13 +33,13 @@ function Chatbot() {
     <div className="chatbot">
       <MessagesArea
         chat={chat}
-        isLoading={isLoading}
+        answerLoading={answerResponse.isLoading}
         chatWindowRef={chatWindowRef}
       />
       <ChatFooter
         message={message}
         setMessage={setMessage}
-        sendMessage={sendMessage}
+        createAnswer={createAnswer}
         chat={chat}
         setChat={setChat}
       />

@@ -1,19 +1,24 @@
 import { SearchIcon } from "assets/icons";
 
-function ChatFooter({ message, setMessage, sendMessage, chat, setChat }) {
+function ChatFooter({ message, setMessage, createAnswer, chat, setChat }) {
   const handleInput = (e) => {
     setMessage(e.target.value);
   };
 
-  const handleSendButton = (e) => {
+  const handleSendButton = () => {
     setChat([
       ...chat,
       {
-        text: message,
+        answer: message,
+        places: [],
         isUser: true,
       },
     ]);
-    sendMessage({ prompt: message });
+    createAnswer({
+      prompt: message,
+      similarity_threshold: 0.8,
+      match_count: 1,
+    });
     setMessage("");
   };
 

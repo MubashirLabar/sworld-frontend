@@ -147,7 +147,7 @@
       border-radius: 15px;
       width: 100%;
       max-width: 520px;
-      height: 125px;
+      height: 130px;
       display: flex;
       cursor: pointer;
       @include media("<=sm") {
@@ -157,7 +157,6 @@
         @include bg-image(15px 0px 0px 15px);
         width: 170px;
         min-width: 170px;
-        height: 125px;
         @include media("<=sm") {
           height: auto;
           min-width: 100px;
@@ -210,6 +209,7 @@
           font-size: 12px;
           line-height: 15px;
           color: $color-white;
+          margin-bottom: 4px;
           @include media("<=sm") {
             font-size: 10px;
             line-height: 13px;
@@ -254,5 +254,8 @@
         color: $color-primary;
       }
     }
+  }
+  .attachment {
+    margin-top: 15px;
   }
 }

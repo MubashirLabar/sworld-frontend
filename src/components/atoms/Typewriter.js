@@ -16,7 +16,7 @@ function Typewriter({ text, className, delay, onDone }) {
         if (index <= text?.length) {
           startTyping();
         } else {
-          onDone();
+          onDone && onDone();
         }
       }, delay);
     };
