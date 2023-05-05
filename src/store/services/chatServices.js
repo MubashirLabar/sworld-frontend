@@ -5,7 +5,7 @@ const chatServices = createApi({
   reducerPath: "chat",
   tagTypes: "chat",
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://sworld-backend.vercel.app/api/chat/`,
+    baseUrl: `https://wandering-pink-barracuda.cyclic.app/api/chat/`,
     headers: {
       "Content-Type": "application/json",
     },
