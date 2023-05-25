@@ -5,7 +5,7 @@ const chatServices = createApi({
   reducerPath: "chat",
   tagTypes: "chat",
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://wandering-pink-barracuda.cyclic.app/api/chat/`,
+    baseUrl: `${env.BASE_URL}chat/`,
     headers: {
       "Content-Type": "application/json",
     },
