@@ -18,7 +18,7 @@ function Routing() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/product-detail" element={<ProductDetail />} />
+          <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/contact" element={<Contact />} />

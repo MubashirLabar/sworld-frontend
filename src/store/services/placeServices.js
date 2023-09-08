@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import env from "config";
 
-const searchServices = createApi({
-  reducerPath: "search",
-  tagTypes: "searchOperations",
+const placeServices = createApi({
+  reducerPath: "places",
+  tagTypes: "placesOperation",
   baseQuery: fetchBaseQuery({
     baseUrl: `${env.BASE_URL}`,
     headers: {
@@ -12,20 +12,20 @@ const searchServices = createApi({
   }),
   endpoints: (builder) => {
     return {
-      searchPlaces: builder.mutation({
+      getPlaceDetail: builder.mutation({
         query: (data) => {
           return {
-            url: "api/search",
+            url: "api/placeDetail",
             method: "POST",
             body: data,
           };
         },
-        invalidatesTags: ["searchOperations"],
+        invalidatesTags: ["placesOperation"],
       }),
     };
   },
 });
 
-export const { useSearchPlacesMutation } = searchServices;
+export const { useGetPlaceDetailMutation } = placeServices;
 
-export default searchServices;
+export default placeServices;

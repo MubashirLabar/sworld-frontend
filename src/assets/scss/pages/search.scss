@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
+
     @include media("<=md") {
       height: 50px;
     }
@@ -22,8 +23,11 @@
         font-weight: 300;
         font-size: 20px;
         line-height: 25px;
-        color: $color-grey;
+        color: $color-black;
         width: 100%;
+        &::placeholder {
+          color: $color-grey;
+        }
         @include media("<=md") {
           font-size: 16px;
           line-height: 22px;
@@ -440,5 +444,22 @@
   }
   @include media("<=sm") {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .placeholder-card {
+    width: 100%;
+    height: 412px;
+    border-radius: 16px;
+  }
+}
+
+.search-not-found {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0px;
+  .title {
+    font-size: 18px;
+    color: rgba($color-white, 0.8);
   }
 }

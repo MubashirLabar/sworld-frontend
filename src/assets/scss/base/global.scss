@@ -139,6 +139,30 @@ body {
   @include text-ellipsis;
 }
 
+.ellipsis-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ellipsis-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .anim {
   @include anim;
 }
@@ -175,7 +199,7 @@ button {
   animation-iteration-count: infinite;
   animation-name: shimmer;
   animation-timing-function: linear;
-  background: linear-gradient(to right, #ddd 8%, #e9e9e9 18%, #ddd 33%);
+  background: linear-gradient(to right, #06344d 8%, #0b3b55 18%, #06344d 33%);
   background-size: 1200px 100%;
 }
 @-webkit-keyframes shimmer {

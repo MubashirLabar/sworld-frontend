@@ -1,10 +1,13 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import AuthLayout from "components/layouts/authLayout";
 import ProductDetailContent from "components/productDetailContent";
 import ProductCard from "components/ProductCard";
 import { ArrowLeftIcon, ArrowRightIcon } from "assets/icons";
+import { useGetPlaceDetailMutation } from "store/services/placeServices";
+import LoaderSpin from "components/atoms/LoaderSpin";
 
 const details = {
   title: "Colosseum",
@@ -35,8 +38,27 @@ const details = {
 };
 
 function ProductDetail() {
+  const { id } = useParams();
   const sliderRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [detail, setDetail] = useState(null);
+  const [getPlaceDetail, response] = useGetPlaceDetailMutation();
+
+  useEffect(() => {
+    if (id) {
+      getPlaceDetail({
+        id: id,
+      });
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (response?.isSuccess && response?.status === "fulfilled") {
+      setDetail(response?.data?.data);
+    } else {
+      console.log("search form response....", response?.data?.message);
+    }
+  }, [response?.isSuccess]);
 
   const handleClickPrevSlide = () => {
     if (!sliderRef.current) return;
@@ -52,13 +74,25 @@ function ProductDetail() {
     setCurrentSlide(swiper.realIndex + 1);
   };
 
+  if (response?.isLoading) {
+    return (
+      <AuthLayout className="product-detail-page">
+        <div className="wrapper">
+          <div className="loading-block">
+            <LoaderSpin color="#fff" />
+          </div>
+        </div>
+      </AuthLayout>
+    );
+  }
+
   return (
     <AuthLayout className="product-detail-page">
       <div className="wrapper">
         <div className="content app-width">
           <div className="product-detail-section">
             <ProductDetailContent
-              data={details}
+              data={detail}
               showExternalButtons={true}
               showSocialButtons={true}
             />
@@ -105,7 +139,7 @@ function ProductDetail() {
             <button
               className="swiper-button-next swiper-button"
               onClick={handleClickNextSlide}
-              disabled={!sliderRef.current || sliderRef.current.swiper.isEnd}
+              disabled={!sliderRef.current || sliderRef?.current?.swiper?.isEnd}
             >
               <ArrowRightIcon />
             </button>
@@ -113,7 +147,7 @@ function ProductDetail() {
               className="swiper-button-prev swiper-button"
               onClick={handleClickPrevSlide}
               disabled={
-                !sliderRef.current || sliderRef.current.swiper.isBeginning
+                !sliderRef.current || sliderRef?.current?.swiper?.isBeginning
               }
             >
               <ArrowLeftIcon />

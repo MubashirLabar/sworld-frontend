@@ -104,7 +104,8 @@ const reviews = [
   },
 ];
 
-function SearchFilters() {
+function SearchFilters({ submitSearchField }) {
+  const [searchInput, setSearchInput] = useState("");
   const [expendFilters, setExpendFilters] = useState(false);
   const [selectedType, setSelectedType] = useState();
   const range = {
@@ -117,6 +118,12 @@ function SearchFilters() {
     setSelectedType(value);
   };
 
+  const handleSearchButton = (value) => {
+    submitSearchField({
+      text: value,
+    });
+  };
+
   return (
     <div className="search-filters-section">
       <div className="search-field">
@@ -125,9 +132,17 @@ function SearchFilters() {
             type="text"
             placeholder={`Where would you like to go near the "Colosseum"?`}
             className="input"
+            onChange={(e) => {
+              setSearchInput(e.target.value);
+              handleSearchButton(e.target.value);
+            }}
+            // onBlur={(e) => handleSearchButton(e.target.value)}
           />
         </div>
-        <button className="search-btn">
+        <button
+          className="search-btn"
+          onClick={() => handleSearchButton(searchInput)}
+        >
           <SearchIcon />
         </button>
       </div>

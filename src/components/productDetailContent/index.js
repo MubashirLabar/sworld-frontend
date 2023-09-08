@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import haversine from "haversine-distance";
 import {
   ClockIcon,
   HostingIcon,
@@ -14,13 +16,26 @@ import {
   ShareIcon,
 } from "assets/icons";
 import SharingOptions from "components/sharingOptions";
+import GoogleMap from "components/GoogleMap";
 
 function ProductDetailContent({
   data,
   showExternalButtons = false,
   showSocialButtons = false,
 }) {
+  const { userGeoLocation } = useSelector((state) => state.globalReducer);
   const [openShareOptions, setOpenShareOptions] = useState(false);
+
+  const a = {
+    latitude: data?.lat,
+    longitude: data?.lon,
+  };
+  const b = {
+    latitude: userGeoLocation?.lat,
+    longitude: userGeoLocation?.lng,
+  };
+
+  let distance = haversine(a, b).toFixed(0);
 
   useEffect(() => {
     document.body.addEventListener("click", () => {
@@ -28,9 +43,11 @@ function ProductDetailContent({
     });
   }, []);
 
-  const descriptionHTML = data.historical_descr
+  const descriptionHTML = data?.historical_descr
     ?.trimStart()
     ?.replace(/\n/g, "<br/>");
+
+  console.log("userGeoLocation....", userGeoLocation);
 
   return (
     <div className="product-detail-content">
@@ -38,10 +55,10 @@ function ProductDetailContent({
         <div className="hdr">
           <div className="hdr-ls">
             <div className="meta">
-              <div className="name">{data.name}</div>
+              <div className="name ellipsis-1">{data?.name || "N/A"}</div>
               <div className="rating-blk">
                 <div className="rating">
-                  {[...Array(data.review)].map((_, index) => (
+                  {[...Array(data?.review)].map((_, index) => (
                     <StarFillIcon key={index} />
                   ))}
                 </div>
@@ -68,12 +85,10 @@ function ProductDetailContent({
                 )}
               </div>
             </div>
-            {data?.address && (
-              <div className="location">
-                <LocationIcon />
-                <span>{data?.address || "N/A"}</span>
-              </div>
-            )}
+            <div className="location">
+              <LocationIcon />
+              <span>{data?.address || "N/A"}</span>
+            </div>
           </div>
           <div className="hdr-rs">
             {showSocialButtons && (
@@ -94,10 +109,13 @@ function ProductDetailContent({
             )}
             <div className="user">
               <div className="meta">
-                <div className="name">N/A</div>
+                <div className="name">{`${data?.first_name} ${data?.last_name}`}</div>
                 <div className="role">N/A</div>
               </div>
-              <div className="dp" style={{ backgroundImage: `url()` }} />
+              <div
+                className="dp"
+                style={{ backgroundImage: `url(/images/user.png)` }}
+              />
             </div>
           </div>
         </div>
@@ -107,7 +125,7 @@ function ProductDetailContent({
               <div className="item">
                 <LocationIcon2 />
                 <div className="lbl">Distance</div>
-                <div className="stamp">N/A</div>
+                <div className="stamp">{`${distance}km` || "N/A"}</div>
               </div>
               <div className="item clock">
                 <ClockIcon />
@@ -117,7 +135,7 @@ function ProductDetailContent({
               <div className="item">
                 <TypeIcon />
                 <div className="lbl">Type</div>
-                <div className="stamp">N/A</div>
+                <div className="stamp">{data?.type || "N/A"}</div>
               </div>
               <div className="item">
                 <HostingIcon />
@@ -125,11 +143,22 @@ function ProductDetailContent({
                 <div className="stamp">N/A</div>
               </div>
             </div>
-            <div className="image" style={{ backgroundImage: `url()` }} />
+            <div
+              className="image"
+              style={{
+                backgroundImage: `url(https://sworld.co.uk/img/img/${data?.images[0]})`,
+              }}
+            />
           </div>
           <div className="rs">
             <div className="map-section">
-              <div className="map-block">Google Map</div>
+              <div className="map-block">
+                {userGeoLocation ? (
+                  <GoogleMap geoLocation={userGeoLocation} zoom={11} />
+                ) : (
+                  <div className="">Map is not available</div>
+                )}
+              </div>
               <div className="ftr">
                 <button className="action">View on Map</button>
               </div>

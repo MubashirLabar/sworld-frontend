@@ -5,7 +5,7 @@ const chatServices = createApi({
   reducerPath: "chat",
   tagTypes: "chat",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${env.BASE_URL}chat/`,
+    baseUrl: `${env.BASE_URL}api/chat/`,
     headers: {
       "Content-Type": "application/json",
     },
